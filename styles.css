@@ -1,14 +1,14 @@
 /* --- Typography Setup --- */
 @font-face {
   font-family: 'Edition Contextual';
-  src: url('fonts/EditionContextualUnlicensed-50.woff') format('woff');
+  src: url('EditionContextualUnlicensed-50.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Edition Scriptual';
-  src: url('fonts/EditionScriptualUnlicensed-50.woff') format('woff');
+  src: url('EditionScriptualUnlicensed-50.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }
@@ -39,6 +39,11 @@ nav a {
   text-decoration: none;
   color: #000000;
   margin-right: 20px;
+}
+
+/* Keeps the inactive link permanently crossed out with no hover animations */
+nav a.crossed-out {
+  text-decoration: line-through;
 }
 
 /* --- Content Layout --- */
