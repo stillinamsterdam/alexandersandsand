@@ -42,6 +42,7 @@ nav {
 }
 
 nav a {
+  font-size: 28px;
   text-decoration: none;
   color: #000000;
   margin-right: 20px;
@@ -124,4 +125,37 @@ nav a.crossed-out {
 .hover-word {
   transition: color 0.15s ease;
   cursor: default;
+}
+
+/* --- Mobile Responsive Rules --- */
+@media (max-width: 768px) {
+  body {
+    padding: 24px 20px; 
+    font-size: 20px;     /* Scales down body text, bio, links & lists */
+  }
+
+  nav a {
+    font-size: 20px;     /* Scales down top navigation menu links */
+  }
+
+  em, i, .italic-font {
+    font-size: 20px;     /* Scales down script font variations */
+  }
+
+  .exhibition-section h2 {
+    font-size: 20px;     /* Scales down EXHIBITIONS uppercase header */
+  }
+
+  nav {
+    margin-bottom: 40px;
+  }
+
+  .artwork-caption {
+    font-size: 16px;     /* Scales down captions centered under works */
+    margin-top: 14px;
+  }
+  
+  .portfolio-container {
+    max-width: 100%;     
+  }
 }
