@@ -30,6 +30,12 @@ em, i, .italic-font {
   font-size: 28px;
 }
 
+/* --- Global Link Styles (Excluding Menu) --- */
+a:not(nav a) {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
 /* --- Navigation --- */
 nav {
   margin-bottom: 60px;
