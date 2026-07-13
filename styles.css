@@ -1,14 +1,14 @@
 /* --- Typography Setup --- */
 @font-face {
   font-family: 'Edition Contextual';
-  src: url('path-to-your-font/EditionContextualUnlicensed-50.woff') format('woff2');
+  src: url('fonts/EditionContextualUnlicensed-50.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Edition Scriptual';
-  src: url('path-to-your-font/EditionScriptualUnlicensed-50.woff') format('woff2');
+  src: url('fonts/EditionScriptualUnlicensed-50.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }
