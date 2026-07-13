@@ -34,6 +34,7 @@ em, i, .italic-font {
 a:not(nav a) {
   color: #0000FF;
   text-decoration: underline;
+  text-decoration-thickness: 1px; /* Thins the underline */
 }
 
 /* --- Navigation --- */
@@ -110,6 +111,7 @@ nav a.crossed-out {
 
 .exhibition-type {
   text-decoration: underline;
+  text-decoration-thickness: 1px; /* Thins the underline */
   margin-bottom: 30px;
 }
 
