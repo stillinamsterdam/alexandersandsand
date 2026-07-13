@@ -113,3 +113,9 @@ nav a.crossed-out {
 .exhibition-item p {
   margin: 0;
 }
+
+/* --- Hover Word Effect --- */
+.hover-word {
+  transition: color 0.15s ease;
+  cursor: default;
+}
