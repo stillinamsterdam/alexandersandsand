@@ -41,12 +41,6 @@ nav a {
   margin-right: 20px;
 }
 
-/* Cross-out effect for active page and hover state */
-nav a.crossed-out,
-nav a:hover {
-  text-decoration: line-through;
-}
-
 /* --- Content Layout --- */
 .section-title {
   margin-bottom: 10px;
