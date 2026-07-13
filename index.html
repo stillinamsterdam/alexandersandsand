@@ -29,21 +29,20 @@
       </div>
   </main>
 
-  <script>
-  // 1. Find all text container elements you want this effect to apply to
-  const textContainers = document.querySelectorAll('body, .bio-text, .artwork-caption, .exhibition-item p, .section-title, .year-heading');
+<script>
+  // Target every standard semantic block that contains visible text across both pages
+  const textContainers = document.querySelectorAll('nav a, .section-title, .year-heading, .bio-text, .contact-info, .exhibition-section h2, .exhibition-type, .exhibition-item p, .artwork-caption');
 
   textContainers.forEach(container => {
-    // Only target elements that contain direct text nodes to avoid messing up image tags
+    // Process text nodes to break them down into words safely
     Array.from(container.childNodes).forEach(node => {
       if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
-        const words = node.textContent.split(/(\s+)/); // Split by words and keep spaces
+        const words = node.textContent.split(/(\s+)/);
         const spanWords = words.map(word => {
-          if (word.trim() === '') return word; // Keep spaces as text
+          if (word.trim() === '') return word;
           return `<span class="hover-word">${word}</span>`;
         });
         
-        // Replace the plain text node with our new split span elements
         const placeholder = document.createElement('span');
         placeholder.innerHTML = spanWords.join('');
         node.parentNode.insertBefore(placeholder, node);
@@ -52,16 +51,15 @@
     });
   });
 
-  // 2. Assign a random color configuration when hovering over a word
+  // Assign the random color on hover
   document.addEventListener('mouseover', function(e) {
     if (e.target.classList.contains('hover-word')) {
-      // Generate a completely random hex color
       const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
       e.target.style.color = randomColor;
     }
   });
 
-  // 3. Reset the color back to black when the mouse leaves the word
+  // Reset the color when moving away
   document.addEventListener('mouseout', function(e) {
     if (e.target.classList.contains('hover-word')) {
       e.target.style.color = '';
