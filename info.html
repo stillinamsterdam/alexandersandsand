@@ -57,13 +57,13 @@
 
   </main>
 
-  <script>
-  // Target every standard semantic block that contains visible text across both pages
-  const textContainers = document.querySelectorAll('nav a, .section-title, .year-heading, .bio-text, .contact-info, .exhibition-section h2, .exhibition-type, .exhibition-item p, .artwork-caption');
+<script>
+  // Target layout elements AND text-formatting elements like em, i, and .italic-font
+  const textContainers = document.querySelectorAll('nav a, .section-title, .year-heading, .bio-text, .contact-info, .exhibition-section h2, .exhibition-type, .exhibition-item p, .artwork-caption, em, i, .italic-font');
 
   textContainers.forEach(container => {
-    // Process text nodes to break them down into words safely
     Array.from(container.childNodes).forEach(node => {
+      // Process text nodes directly inside targeted elements safely
       if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
         const words = node.textContent.split(/(\s+)/);
         const spanWords = words.map(word => {
@@ -94,6 +94,5 @@
     }
   });
 </script>
-
 </body>
 </html>
