@@ -57,5 +57,43 @@
 
   </main>
 
+  <script>
+  // Target every standard semantic block that contains visible text across both pages
+  const textContainers = document.querySelectorAll('nav a, .section-title, .year-heading, .bio-text, .contact-info, .exhibition-section h2, .exhibition-type, .exhibition-item p, .artwork-caption');
+
+  textContainers.forEach(container => {
+    // Process text nodes to break them down into words safely
+    Array.from(container.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+        const words = node.textContent.split(/(\s+)/);
+        const spanWords = words.map(word => {
+          if (word.trim() === '') return word;
+          return `<span class="hover-word">${word}</span>`;
+        });
+        
+        const placeholder = document.createElement('span');
+        placeholder.innerHTML = spanWords.join('');
+        node.parentNode.insertBefore(placeholder, node);
+        node.parentNode.removeChild(node);
+      }
+    });
+  });
+
+  // Assign the random color on hover
+  document.addEventListener('mouseover', function(e) {
+    if (e.target.classList.contains('hover-word')) {
+      const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+      e.target.style.color = randomColor;
+    }
+  });
+
+  // Reset the color when moving away
+  document.addEventListener('mouseout', function(e) {
+    if (e.target.classList.contains('hover-word')) {
+      e.target.style.color = '';
+    }
+  });
+</script>
+
 </body>
 </html>
