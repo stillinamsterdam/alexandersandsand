@@ -29,5 +29,45 @@
       </div>
   </main>
 
+  <script>
+  // 1. Find all text container elements you want this effect to apply to
+  const textContainers = document.querySelectorAll('body, .bio-text, .artwork-caption, .exhibition-item p, .section-title, .year-heading');
+
+  textContainers.forEach(container => {
+    // Only target elements that contain direct text nodes to avoid messing up image tags
+    Array.from(container.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+        const words = node.textContent.split(/(\s+)/); // Split by words and keep spaces
+        const spanWords = words.map(word => {
+          if (word.trim() === '') return word; // Keep spaces as text
+          return `<span class="hover-word">${word}</span>`;
+        });
+        
+        // Replace the plain text node with our new split span elements
+        const placeholder = document.createElement('span');
+        placeholder.innerHTML = spanWords.join('');
+        node.parentNode.insertBefore(placeholder, node);
+        node.parentNode.removeChild(node);
+      }
+    });
+  });
+
+  // 2. Assign a random color configuration when hovering over a word
+  document.addEventListener('mouseover', function(e) {
+    if (e.target.classList.contains('hover-word')) {
+      // Generate a completely random hex color
+      const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+      e.target.style.color = randomColor;
+    }
+  });
+
+  // 3. Reset the color back to black when the mouse leaves the word
+  document.addEventListener('mouseout', function(e) {
+    if (e.target.classList.contains('hover-word')) {
+      e.target.style.color = '';
+    }
+  });
+</script>
+
 </body>
 </html>
