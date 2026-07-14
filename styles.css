@@ -34,7 +34,12 @@ em, i, .italic-font {
 a:not(nav a) {
   color: #0000FF;
   text-decoration: underline;
-  text-decoration-thickness: 2px; /* Thins the underline */
+  text-decoration-thickness: 1px; /* Thins the underline */
+}
+
+/* Forces JS-wrapped letters inside global links (like IG) to stay blue */
+a:not(nav a) .hover-word {
+  color: #0000FF;
 }
 
 /* --- Navigation --- */
@@ -47,6 +52,11 @@ nav a {
   text-decoration: none;
   color: #000000;
   margin-right: 20px;
+}
+
+/* Forces JS-wrapped letters inside the top menu links to stay black */
+nav a .hover-word {
+  color: #000000;
 }
 
 /* Keeps the inactive link permanently crossed out with no hover animations */
@@ -158,6 +168,4 @@ nav a.crossed-out {
   }
   
   .portfolio-container {
-    max-width: 100%;     
-  }
-}
+    max-width: 10
