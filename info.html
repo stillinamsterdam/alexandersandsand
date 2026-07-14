@@ -72,18 +72,18 @@
     Array.from(container.childNodes).forEach(node => {
       // Process text nodes directly inside targeted elements safely
       if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
-        // Use spread operator to split the string into individual letters/characters
-        const characters = [...node.textContent];
+        // Splits by words while capturing spaces to preserve formatting
+        const words = node.textContent.split(/(\s+)/);
         
-        const spanLetters = characters.map(char => {
+        const spanWords = words.map(word => {
           // If it's a space or whitespace, keep it as-is without a span
-          if (char.trim() === '') return char;
-          // Wrap individual letters in the hover-word class
-          return `<span class="hover-word">${char}</span>`;
+          if (word.trim() === '') return word;
+          // Wrap individual words in the hover-word class
+          return `<span class="hover-word">${word}</span>`;
         });
         
         const placeholder = document.createElement('span');
-        placeholder.innerHTML = spanLetters.join('');
+        placeholder.innerHTML = spanWords.join('');
         node.parentNode.insertBefore(placeholder, node);
         node.parentNode.removeChild(node);
       }
