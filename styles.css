@@ -34,7 +34,7 @@ em, i, .italic-font {
 a:not(nav a) {
   color: #0000FF;
   text-decoration: underline;
-  text-decoration-thickness: 1px; /* Thins the underline */
+  text-decoration-thickness: 2px;
 }
 
 /* Forces JS-wrapped letters inside global links (like IG) to stay blue */
