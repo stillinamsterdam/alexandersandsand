@@ -120,7 +120,9 @@ nav a.crossed-out {
 }
 
 .exhibition-type {
-  text-decoration: underline; /* Reverted to default browser thickness */
+  text-decoration: underline;
+  text-underline-offset: 8px;       /* Pushes the underline down so it doesn't crowd the letters */
+  text-decoration-skip-ink: auto;   /* Automatically cuts the line where descenders (like p and g) cross it */
   margin-bottom: 30px;
 }
 
