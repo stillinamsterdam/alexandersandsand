@@ -32,14 +32,14 @@ em, i, .italic-font {
 
 /* --- Global Link Styles (Excluding Menu) --- */
 a:not(nav a) {
-  color: #0000FF;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  color: #0000FF !important;
+  text-decoration: underline; /* Reverted to default browser thickness */
 }
 
-/* Forces JS-wrapped letters inside global links (like IG) to stay blue */
-a:not(nav a) .hover-word {
-  color: #0000FF;
+/* Forces JS-wrapped words inside OR on the global links (like IG) to stay blue */
+a:not(nav a) .hover-word,
+a:not(nav a).hover-word {
+  color: #0000FF !important;
 }
 
 /* --- Navigation --- */
@@ -54,7 +54,7 @@ nav a {
   margin-right: 20px;
 }
 
-/* Forces JS-wrapped letters inside the top menu links to stay black */
+/* Forces JS-wrapped words inside the top menu links to stay black */
 nav a .hover-word {
   color: #000000;
 }
@@ -120,8 +120,7 @@ nav a.crossed-out {
 }
 
 .exhibition-type {
-  text-decoration: underline;
-  text-decoration-thickness: 1px; /* Thins the underline */
+  text-decoration: underline; /* Reverted to default browser thickness */
   margin-bottom: 30px;
 }
 
@@ -168,4 +167,6 @@ nav a.crossed-out {
   }
   
   .portfolio-container {
-    max-width: 10
+    max-width: 100%;     
+  }
+}
