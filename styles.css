@@ -32,14 +32,15 @@ em, i, .italic-font {
 
 /* --- Global Link Styles (Excluding Menu) --- */
 a:not(nav a) {
-  color: #0000FF !important;
-  text-decoration: underline; /* Reverted to default browser thickness */
+  color: #0000FF;
+  text-decoration: underline;
 }
 
-/* Forces JS-wrapped words inside OR on the global links (like IG) to stay blue */
+/* Default state for link text; allows JS hover color to override when hovered */
 a:not(nav a) .hover-word,
 a:not(nav a).hover-word {
-  color: #0000FF !important;
+  color: #0000FF;
+  cursor: pointer;
 }
 
 /* --- Navigation --- */
@@ -54,12 +55,10 @@ nav a {
   margin-right: 20px;
 }
 
-/* Forces JS-wrapped words inside the top menu links to stay black */
 nav a .hover-word {
   color: #000000;
 }
 
-/* Keeps the inactive link permanently crossed out with no hover animations */
 nav a.crossed-out {
   text-decoration: line-through;
 }
@@ -121,8 +120,8 @@ nav a.crossed-out {
 
 .exhibition-type {
   text-decoration: underline;
-  text-underline-offset: 8px;       /* Pushes the underline down so it doesn't crowd the letters */
-  text-decoration-skip-ink: auto;   /* Automatically cuts the line where descenders (like p and g) cross it */
+  text-underline-offset: 8px;
+  text-decoration-skip-ink: auto;
   margin-bottom: 30px;
 }
 
@@ -144,19 +143,19 @@ nav a.crossed-out {
 @media (max-width: 768px) {
   body {
     padding: 24px 20px; 
-    font-size: 20px;     /* Scales down body text, bio, links & lists */
+    font-size: 20px;
   }
 
   nav a {
-    font-size: 20px;     /* Scales down top navigation menu links */
+    font-size: 20px;
   }
 
   em, i, .italic-font {
-    font-size: 20px;     /* Scales down script font variations */
+    font-size: 20px;
   }
 
   .exhibition-section h2 {
-    font-size: 20px;     /* Scales down EXHIBITIONS uppercase header */
+    font-size: 20px;
   }
 
   nav {
@@ -164,11 +163,11 @@ nav a.crossed-out {
   }
 
   .artwork-caption {
-    font-size: 12px;     /* Scales down captions centered under works */
+    font-size: 12px;
     margin-top: 14px;
   }
   
   .portfolio-container {
-    max-width: 100%;     
+    max-width: 100%; 
   }
 }
